@@ -1,12 +1,17 @@
 const appConfig = require('./appConfig');
 require('dotenv').config();
 
-const buildCredentials = ({ PROJECT_ID, PRIVATE_KEY, PRIVATE_KEY_ID }) => ({
+const buildCredentials = ({
+  PROJECT_ID,
+  PRIVATE_KEY,
+  PRIVATE_KEY_ID,
+  CLIENT_EMAIL,
+}) => ({
   type: 'service_account',
   project_id: PROJECT_ID,
   private_key_id: PRIVATE_KEY_ID,
   private_key: PRIVATE_KEY.replace(/(\\r)|(\\n)/g, '\n'),
-  client_email: `${PROJECT_ID}@appspot.gserviceaccount.com`,
+  client_email: CLIENT_EMAIL,
   client_id: '',
   auth_uri: 'https://accounts.google.com/o/oauth2/auth',
   token_uri: 'https://oauth2.googleapis.com/token',
@@ -14,7 +19,7 @@ const buildCredentials = ({ PROJECT_ID, PRIVATE_KEY, PRIVATE_KEY_ID }) => ({
   client_x509_cert_url: `https://www.googleapis.com/robot/v1/metadata/x509/${PROJECT_ID}%40appspot.gserviceaccount.com`,
 });
 
-const SPREADSHEET_ID = '1e6mNWZZLuBBFk2c-zGRSSh8g5mqoQUPbW78NmA_EI88';
+const SPREADSHEET_ID = '1fSSXxl-b6Jb5cXexB800gqQiV4eyd6NhXSQ4uTFWT4U';
 
 const { theme, ...siteMetadata } = appConfig;
 
@@ -28,7 +33,7 @@ module.exports = {
       resolve: 'gatsby-source-google-sheets',
       options: {
         spreadsheetId: SPREADSHEET_ID,
-        worksheetTitle: 'Events',
+        worksheetTitle: 'Form responses 1',
         credentials: buildCredentials(process.env),
       },
     },

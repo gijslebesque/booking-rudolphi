@@ -18,13 +18,15 @@ const SPREADSHEET_QUERY = graphql`
         limitMonthInTheFuture
       }
     }
-    allGoogleSheetEventsRow {
-      nodes {
-        id
-        eventName: whatisthename
-        date: when
-        eventLink: linktotheevent
-        place: where
+
+    allGoogleSheetFormResponses1Row {
+      edges {
+        node {
+          eventName: naamvandeshow
+          date: welkedatumwiltuboeken
+          timestamp
+          emailaddress
+        }
       }
     }
   }
@@ -34,13 +36,18 @@ const CalendarPage = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState<ModalData>();
 
-  const { allGoogleSheetEventsRow, site } = useStaticQuery(SPREADSHEET_QUERY);
+  const { allGoogleSheetFormResponses1Row, site } = useStaticQuery(
+    SPREADSHEET_QUERY,
+  );
   const { limitMonthInTheFuture } = site.siteMetadata;
 
   const months = useMemo(
     () =>
-      groupEventsByMonth(allGoogleSheetEventsRow.nodes, limitMonthInTheFuture),
-    [allGoogleSheetEventsRow.nodes, limitMonthInTheFuture],
+      groupEventsByMonth(
+        allGoogleSheetFormResponses1Row.edges,
+        limitMonthInTheFuture,
+      ),
+    [allGoogleSheetFormResponses1Row.edges, limitMonthInTheFuture],
   );
 
   const openModal = useCallback((data: ModalData) => {
