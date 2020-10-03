@@ -10,7 +10,6 @@ import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import Header from './header';
-import SideNav from './sideNav';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -26,7 +25,7 @@ const Layout = ({ children }) => {
   return (
     <div className="wrapper">
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <SideNav />
+
       <main className="container">{children}</main>
       <footer className="footer container flex-between">
         <div>
