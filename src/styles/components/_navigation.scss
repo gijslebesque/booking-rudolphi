@@ -19,6 +19,7 @@ nav {
 }
 
 .side-nav {
+  padding: 4rem;
   padding-top: 30px;
   position: fixed;
   width: 350px;
@@ -32,5 +33,11 @@ nav {
   &-logo {
     display: block;
     margin: 0 auto;
+  }
+
+  &-items {
+    a:hover {
+      text-decoration: underline;
+    }
   }
 }

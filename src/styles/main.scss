@@ -1,9 +1,10 @@
-//base
-@import 'base/reset';
-
 //abstracts
 @import 'abstracts/variables';
 @import 'abstracts/typography';
+@import 'abstracts/spacing';
+
+//base
+@import 'base/reset';
 
 //layout
 @import 'layout/grid';
@@ -11,5 +12,7 @@
 @import 'layout/footer';
 
 //componetns
-
 @import 'components/navigation';
+
+//pages
+@import 'pages/show';

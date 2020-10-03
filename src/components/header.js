@@ -4,8 +4,8 @@ import Logo from '../images/logo_rudolphi.svg';
 import Menu from '../images/menu.svg';
 import SideNav from './sideNav';
 
-const Header = () => {
-  const [showSideNav, setShowSideNav] = useState(true);
+const Header = ({ rows }) => {
+  const [showSideNav, setShowSideNav] = useState(false);
 
   return (
     <header className="header container flex">
@@ -17,7 +17,7 @@ const Header = () => {
       <nav onClick={() => setShowSideNav(true)}>
         <img src={Menu} alt="Menu" />
       </nav>
-      {showSideNav && <SideNav setShowSideNav={setShowSideNav} />}
+      {showSideNav && <SideNav rows={rows} setShowSideNav={setShowSideNav} />}
     </header>
   );
 };
