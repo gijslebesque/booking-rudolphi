@@ -1,11 +1,47 @@
 import React from 'react';
+import SEO from '../components/seo';
+import Layout from '../components/layout';
 // import { Link } from 'gatsby';
+import { normaliseDataGrid } from '../utils/normaliseData';
 
-const Page = data => {
-  console.log(data);
+const Page = ({ pageContext: { node }, data }) => {
+  const showData = {
+    ...node.metadata,
+  };
+
+  console.log(data.allCosmicjsShows);
+  const rows = normaliseDataGrid(data.allCosmicjsShows.edges);
 
   return (
     <>
+      <Layout rows={rows}>
+        <SEO title={'home'} />
+        <div className="flex show">
+          <div className="show-img">
+            <img src={showData.show_image.url} alt={showData.show_name} />
+          </div>
+          <div>
+            <h1>{showData.show_name}</h1>
+            <h2 className="underline">{showData.theatre_name}</h2>
+            <div
+              className="about"
+              dangerouslySetInnerHTML={{ __html: node.content }}
+            ></div>
+
+            <p>
+              <strong> Website:{'  '}</strong>
+              <a href={showData.link_to_show} target="_blank">
+                {showData.show_name}
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <div className="calendar">
+          <h1>Beschikbaarheid</h1>
+        </div>
+      </Layout>
+
       {/* <Layout>
         <SEO
           title={title}
@@ -45,5 +81,23 @@ const Page = data => {
     </>
   );
 };
+
+export const query = graphql`
+  query pageQueryForNav {
+    allCosmicjsShows {
+      edges {
+        node {
+          metadata {
+            show_name
+            show_image {
+              imgix_url
+            }
+          }
+          slug
+        }
+      }
+    }
+  }
+`;
 
 export default Page;

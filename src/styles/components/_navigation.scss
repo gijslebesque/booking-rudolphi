@@ -1,0 +1,43 @@
+nav {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 16px;
+  right: 0;
+  cursor: pointer;
+}
+
+.side-nav-window {
+  position: fixed;
+  background: transparent;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.side-nav {
+  padding: 4rem;
+  padding-top: 30px;
+  position: fixed;
+  width: 350px;
+  background: white;
+  z-index: 99999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: 0 0 8px 1px black;
+
+  &-logo {
+    display: block;
+    margin: 0 auto;
+  }
+
+  &-items {
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+}
