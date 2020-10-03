@@ -1,36 +1,59 @@
-// const template = path.resolve(`./src/templates/index.js`);
+const path = require(`path`);
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  const typeDefs = `
+    type googleSheetEventsRow implements Node @dontInfer {
+      id: ID!
+      parent: Node
+      children: [Node!]!
+      internal: Internal!
+      timestamp: String
+      whatisthename: String
+      when: String
+      linktotheevent: String
+      where: String
+    }
+  `;
+  createTypes(typeDefs);
+};
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
-  //   const result = await graphql(`
-  //     {
-  //       allCosmicjsShows {
-  //         edges {
-  //           node {
-  //             slug
-  //           }
-  //         }
-  //       }
-  //     }
-  //   `);
-  //   if (result.errors) {
-  //     console.error(result.errors);
-  //   }
+  const result = await graphql(`
+    query {
+      allCosmicjsShows {
+        edges {
+          node {
+            slug
+            title
+            content
+            metadata {
+              link_to_show
+              from
+              capacity
+              show_credits
+              show_image {
+                url
+              }
+              show_name
+              theatre_name
+              to
+            }
+          }
+        }
+      }
+    }
+  `);
 
-  //   console.log(result);
-
-  //   result.data.allCosmicjsShows.edges.forEach(({ node }) => {
-  //     console.log(node);
-  //   });
+  result.data.allCosmicjsShows.edges.forEach(({ node }) => {
+    createPage({
+      path: node.slug,
+      component: path.resolve(`./src/templates/page.js`),
+      context: {
+        node
+      }
+    });
+  });
 };
-
-//   createPage({
-//     path: ,
-//     component: template,
-//     context: {
-//       index,
-//     },
-//   });
-// };
-// }
