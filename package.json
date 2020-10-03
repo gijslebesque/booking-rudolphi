@@ -17,6 +17,7 @@
     "gatsby-source-filesystem": "^2.3.31",
     "gatsby-source-google-sheets": "^1.1.1",
     "gatsby-transformer-sharp": "^2.5.16",
+    "moment": "^2.29.0",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",

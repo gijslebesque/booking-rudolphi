@@ -15,8 +15,8 @@ export default function SideNav({ setShowSideNav, rows }) {
         <img className="side-nav-logo" src={Logo} alt="Menu logo" />
         <div className="side-nav-items flex-column margin-t-m">
           <Link to="/">Home</Link>
-          {rows.map((r) => (
-            <Link className="margin-t-s" to={'/' + r.link}>
+          {rows.map((r, i) => (
+            <Link key={i} className="margin-t-s" to={'/' + r.link}>
               {r.showName}
             </Link>
           ))}
