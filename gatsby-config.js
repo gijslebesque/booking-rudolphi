@@ -12,13 +12,13 @@ const buildCredentials = ({
   private_key_id: PRIVATE_KEY_ID,
   private_key: PRIVATE_KEY.replace(/(\\r)|(\\n)/g, '\n'),
   client_email: CLIENT_EMAIL,
-  client_id: '',
+  client_id: '107986179848581306854',
   auth_uri: 'https://accounts.google.com/o/oauth2/auth',
   token_uri: 'https://oauth2.googleapis.com/token',
   auth_provider_x509_cert_url: 'https://www.googleapis.com/oauth2/v1/certs',
   client_x509_cert_url: `https://www.googleapis.com/robot/v1/metadata/x509/${PROJECT_ID}%40appspot.gserviceaccount.com`
 });
-const SPREADSHEET_ID = '1fSSXxl-b6Jb5cXexB800gqQiV4eyd6NhXSQ4uTFWT4U';
+const SPREADSHEET_ID = '1dBd7X7XcLdt5mSzJogw6EnuSyuRkfM5nIzqzZtzwGP8';
 
 module.exports = {
   siteMetadata: {
