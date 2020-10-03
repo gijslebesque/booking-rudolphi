@@ -1,0 +1,13 @@
+.header {
+  position: relative;
+  padding: 10px;
+  &-logo {
+    width: 100%;
+    margin-right: 42px;
+    a {
+      line-height: 1.5;
+      text-decoration: none;
+      font-size: 100%;
+    }
+  }
+}

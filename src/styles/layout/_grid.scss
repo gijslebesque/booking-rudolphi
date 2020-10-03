@@ -1,0 +1,29 @@
+.container {
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+}
+
+.wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.align-end {
+  align-self: flex-end;
+}
