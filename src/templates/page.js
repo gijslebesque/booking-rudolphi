@@ -1,7 +1,8 @@
 import React from 'react';
+import SEO from '../components/seo';
 // import { Link } from 'gatsby';
 
-const Page = data => {
+const Page = (data) => {
   console.log(data);
 
   return (
