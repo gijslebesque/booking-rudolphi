@@ -1,15 +1,16 @@
 import React from 'react';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
-// import { Link } from 'gatsby';
 import { normaliseDataGrid } from '../utils/normaliseData';
 
-const Page = ({ pageContext: { node }, data }) => {
+import Calender from '../components/calendar';
+
+const Page = ({ pageContext: { node, calenderDate }, data }) => {
   const showData = {
     ...node.metadata,
   };
 
-  console.log(data.allCosmicjsShows);
+  console.log(node, calenderDate);
   const rows = normaliseDataGrid(data.allCosmicjsShows.edges);
 
   return (
@@ -30,54 +31,19 @@ const Page = ({ pageContext: { node }, data }) => {
 
             <p>
               <strong> Website:{'  '}</strong>
-              <a href={showData.link_to_show} target="_blank">
+              <a href={showData.link_to_show} target="_blank" rel="noreferrer">
                 {showData.show_name}
               </a>
             </p>
           </div>
         </div>
 
-        <div className="calendar">
+        <div>
           <h1>Beschikbaarheid</h1>
+
+          <Calender requests={calenderDate} to={node.to} from={node.from} />
         </div>
       </Layout>
-
-      {/* <Layout>
-        <SEO
-          title={title}
-          description={`This page is about proorganica: ${
-            metadata.excerpt && metadata.excerpt
-          }`}
-        />
-        <div className="container">
-          <article className="content">
-            <h1 className="content-title">{title && title}</h1>
-            <i>{metadata.excerpt && metadata.excerpt}</i>
-            {metadata.main_image && (
-              <figure className="post-feature-image padding-horizontal-2">
-                <ImageCard
-                  className="post-card-image"
-                  alt={title}
-                  filename={metadata && metadata.main_image.url}
-                ></ImageCard>
-              </figure>
-            )}
-            <section className="post-full-content">
-              <section
-                className="content-body load-external-scripts"
-                dangerouslySetInnerHTML={{ __html: content }}
-              />
-            </section>{" "}
-            <div className="content-footer">
-              {" "}
-              <Link className="highlight-content" to={`/${randomSlug}`}>
-                {randomSlug.replace("-", " ")}{" "}
-                <FontAwesomeIcon icon={faArrowRight} />{" "}
-              </Link>
-            </div>{" "}
-          </article>
-        </div>
-      </Layout> */}
     </>
   );
 };
