@@ -22,7 +22,7 @@ const SPREADSHEET_ID = '1dBd7X7XcLdt5mSzJogw6EnuSyuRkfM5nIzqzZtzwGP8';
 
 module.exports = {
   siteMetadata: {
-    title: `Theaterzaken Via Rudolphi | VIA RUDOLPHI`,
+    title: `VIA RUDOLPHI`,
     titleTemplate: 'Theaterzaken Via Rudolphi | VIA RUDOLPHI',
     description: `Theaterzaken Via Rudolphi is het theaterbureau van verschillende gezelschappen, veelbelovende projecten en aanstormende talenten.`,
     copyright: 'Copyright © VIA RUDOLPHI 2020. All Rights Reserved.',
@@ -32,6 +32,7 @@ module.exports = {
   },
 
   plugins: [
+    `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

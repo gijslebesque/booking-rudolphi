@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
 
 import Header from './header';
-import './layout.css';
+import SideNav from './sideNav';
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -24,25 +24,27 @@ const Layout = ({ children }) => {
   `);
 
   return (
-    <>
+    <div className="wrapper">
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
+      <SideNav />
+      <main className="container">{children}</main>
+      <footer className="footer container flex-between">
+        <div>
+          <h3>Contact</h3>
+          <p>Theaterzaken Via Rudolphi</p>
+          <p>Rombout Hogerbeetsstraat 109 - unit 36</p>
+          <p>1052 VW Amsterdam</p>
+          <p>Telefoon: 020-6277555</p>
+          <p>
+            E-mail:
+            <a href="mailto: info@viarudolphi.nl"> info@viarudolphi.nl</a>
+          </p>
+        </div>
+        <div className="align-end">
           © {new Date().getFullYear()}, Built by James & Gijs
-        </footer>
-      </div>
-    </>
+        </div>
+      </footer>
+    </div>
   );
 };
 
