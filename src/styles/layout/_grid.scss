@@ -14,6 +14,10 @@
   display: flex;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .flex-column {
   display: flex;
   flex-direction: column;
@@ -39,4 +43,16 @@
 .flex-center {
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 60rem) {
+  .hide-mobile {
+    display: none;
+  }
+}
+
+@media (min-width: 60rem) {
+  .show-mobile {
+    display: none;
+  }
 }

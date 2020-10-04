@@ -97,7 +97,7 @@ export default class Calendar extends React.Component {
       new Date(this.props.to).getMonth();
 
     return (
-      <section className="calender align-start margin-t-m">
+      <section className="calender  margin-t-m">
         <header className="calender-header">
           <div className="month-display row">
             {showPrev && (

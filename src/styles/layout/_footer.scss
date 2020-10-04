@@ -3,3 +3,18 @@
   padding-top: 40px;
   padding-bottom: 4rem;
 }
+
+@media (max-width: 60rem) {
+  .footer {
+    p {
+      font-size: 1rem;
+    }
+    &.flex-between {
+      flex-direction: column;
+    }
+
+    .align-end {
+      align-self: flex-start;
+    }
+  }
+}

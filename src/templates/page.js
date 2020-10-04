@@ -72,13 +72,15 @@ const Page = ({ pageContext: { node } }) => {
                 {new Date(showData.to).toLocaleDateString()} <br />
               </strong>
 
-              <strong>beschikbaarheid:</strong>
+              <strong className="hide-mobile">beschikbaarheid:</strong>
             </p>
-            <Calender
-              requests={calenderDate}
-              to={showData.to}
-              from={showData.from}
-            />
+            <div className="hide-mobile">
+              <Calender
+                requests={calenderDate}
+                to={showData.to}
+                from={showData.from}
+              />
+            </div>
           </div>
           <div>
             <div className="flex-between">
@@ -89,6 +91,13 @@ const Page = ({ pageContext: { node } }) => {
               <a href="#google-form" className="btn btn-primary">
                 Boek nu
               </a>
+              <div className="show-mobile">
+                <Calender
+                  requests={calenderDate}
+                  to={showData.to}
+                  from={showData.from}
+                />
+              </div>
             </div>
             <div>
               <div
@@ -119,8 +128,8 @@ const Page = ({ pageContext: { node } }) => {
               title="google-form"
               id="google-form"
               src="https://docs.google.com/forms/d/e/1FAIpQLScI1ED5-411gh5mkqk21XdqJtrSIHTOiWHUNC3UGm_bUiTiWQ/viewform?embedded=true"
-              width="600"
-              height="500"
+              width="100%"
+              height="900"
               frameBorder="0"
               marginHeight="0"
               marginWidth="0"

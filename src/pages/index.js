@@ -15,7 +15,7 @@ const IndexPage = ({
   return (
     <Layout rows={rows}>
       <SEO title="Home" />
-      <div className="flex">
+      <div className="flex flex-wrap">
         {rows.map((r, i) => (
           <div key={i} className="card">
             <Link to={r.link}>

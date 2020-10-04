@@ -1,4 +1,5 @@
 .btn {
+  text-align: center;
   padding: 2rem 4rem;
   border: 1px black solid;
   background: white;
@@ -8,4 +9,13 @@
   text-transform: uppercase;
   color: black;
   letter-spacing: 1rem;
+}
+
+@media (max-width: 60rem) {
+  .btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    letter-spacing: 0.5rem;
+    margin: 20px 0px;
+  }
 }
