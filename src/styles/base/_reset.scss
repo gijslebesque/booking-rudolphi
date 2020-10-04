@@ -3,7 +3,7 @@ html {
   -webkit-text-size-adjust: 100%;
   box-sizing: border-box;
   overflow-y: scroll;
-
+  scroll-behavior: smooth;
   font-size: 62.5%;
 }
 body {
@@ -55,6 +55,7 @@ a {
   -webkit-text-decoration-skip: objects;
   text-decoration: underline;
   color: $black-primary;
+  cursor: pointer;
 }
 a:active,
 a:hover {

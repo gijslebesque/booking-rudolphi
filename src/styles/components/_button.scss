@@ -1,5 +1,5 @@
 .btn {
-  padding: 20px 40px;
+  padding: 2rem 4rem;
   border: 1px black solid;
   background: white;
   border-radius: 5px;
@@ -7,11 +7,5 @@
   font-size: 2rem;
   text-transform: uppercase;
   color: black;
-  position: absolute;
-  right: 0;
-  top: 0;
-  letter-spacing: 10px;
-  //   float: right;
-  &-primary {
-  }
+  letter-spacing: 1rem;
 }
