@@ -6,7 +6,7 @@ export default class Calendar extends React.Component {
     super(props);
 
     this.state = {
-      month: moment(),
+      month: moment(props.from),
       selected: moment().startOf('day'),
     };
 
@@ -88,18 +88,30 @@ export default class Calendar extends React.Component {
   }
 
   render() {
+    const showPrev =
+      new Date(this.state.month).getMonth() !==
+      new Date(this.props.from).getMonth();
+
+    const showNext =
+      new Date(this.state.month).getMonth() !==
+      new Date(this.props.to).getMonth();
+
     return (
       <section className="calender align-start margin-t-m">
         <header className="calender-header">
           <div className="month-display row">
-            <span className="calender-arrow" onClick={this.previous}>
-              &larr;
-            </span>
+            {showPrev && (
+              <span className="calender-arrow" onClick={this.previous}>
+                &larr;
+              </span>
+            )}
 
             {this.renderMonthLabel()}
-            <span className="calender-arrow" onClick={this.next}>
-              &rarr;
-            </span>
+            {showNext && (
+              <span className="calender-arrow" onClick={this.next}>
+                &rarr;
+              </span>
+            )}
           </div>
           <DayNames />
         </header>

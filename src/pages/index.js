@@ -5,7 +5,6 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import { graphql } from 'gatsby';
 
-import '../styles/main.scss';
 import { normaliseDataGrid } from '../utils/normaliseData';
 const IndexPage = ({
   data: {

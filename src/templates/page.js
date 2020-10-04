@@ -58,7 +58,6 @@ const Page = ({ pageContext: { node } }) => {
         calenderDate.pending.push(welkedatumwiltuboeken);
       }
     });
-
   return (
     <>
       <Layout rows={rows}>
@@ -66,9 +65,22 @@ const Page = ({ pageContext: { node } }) => {
         <div className="flex show">
           <div className="show-img">
             <img src={showData.show_image.url} alt={showData.show_name} />
-            <Calender requests={calenderDate} to={node.to} from={node.from} />
+
+            <p className="margin-t-m" style={{ textAlign: 'center' }}>
+              <strong>
+                Van {new Date(showData.from).toLocaleDateString()} t/m{' '}
+                {new Date(showData.to).toLocaleDateString()} <br />
+              </strong>
+
+              <strong>beschikbaarheid:</strong>
+            </p>
+            <Calender
+              requests={calenderDate}
+              to={showData.to}
+              from={showData.from}
+            />
           </div>
-          <div className="position-relative">
+          <div>
             <div className="flex-between">
               <div>
                 <h1>{showData.show_name}</h1>
@@ -85,6 +97,7 @@ const Page = ({ pageContext: { node } }) => {
               ></div>
             </div>
 
+            <p>{showData.show_credits}</p>
             <p>
               <strong> Website:{'  '}</strong>
               <a href={showData.link_to_show} target="_blank" rel="noreferrer">
