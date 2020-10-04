@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Logo from '../images/menu_logo.gif';
 
 import { Link } from 'gatsby';
 export default function SideNav({ setShowSideNav, rows }) {
+  const notificationEl = useRef(null);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (notificationEl.current) {
+        notificationEl.current.style = 'transform: translateX(0%)';
+      }
+    }, 10);
+
+    return () => (notificationEl.current.style = 'transform: translateX(120%)');
+  });
+
   return (
     <div
       role="side-nav-window"
@@ -13,7 +25,9 @@ export default function SideNav({ setShowSideNav, rows }) {
       }}
     >
       <div
-        className="side-nav"
+        style={{ transform: 'translateX(120%)' }}
+        ref={notificationEl}
+        className={`side-nav animate`}
         role="side-nav"
         onClick={(e) => e.stopPropagation()}
       >
