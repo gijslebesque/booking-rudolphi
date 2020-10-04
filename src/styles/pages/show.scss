@@ -4,3 +4,21 @@
     margin-right: 4rem;
   }
 }
+
+@media (max-width: 60rem) {
+  .show {
+    flex-direction: column;
+    &-img {
+      margin-right: 0rem;
+    }
+
+    .flex-between {
+      flex-direction: column;
+    }
+  }
+
+  h1,
+  h2 {
+    text-align: center;
+  }
+}

@@ -5,13 +5,18 @@ import { Link } from 'gatsby';
 export default function SideNav({ setShowSideNav, rows }) {
   return (
     <div
+      role="side-nav-window"
       className="side-nav-window"
       onClick={(e) => {
         e.stopPropagation();
         setShowSideNav(false);
       }}
     >
-      <div className="side-nav" onClick={(e) => e.stopPropagation()}>
+      <div
+        className="side-nav"
+        role="side-nav"
+        onClick={(e) => e.stopPropagation()}
+      >
         <img className="side-nav-logo" src={Logo} alt="Menu logo" />
         <div className="side-nav-items flex-column margin-t-m">
           <Link to="/">Home</Link>
@@ -25,18 +30,3 @@ export default function SideNav({ setShowSideNav, rows }) {
     </div>
   );
 }
-
-export const query = graphql`
-  query navQuery {
-    allCosmicjsShows {
-      edges {
-        node {
-          metadata {
-            show_name
-          }
-          slug
-        }
-      }
-    }
-  }
-`;

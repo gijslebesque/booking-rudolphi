@@ -6,7 +6,7 @@ export default class Calendar extends React.Component {
     super(props);
 
     this.state = {
-      month: moment(),
+      month: moment(props.from),
       selected: moment().startOf('day'),
     };
 
@@ -75,17 +75,43 @@ export default class Calendar extends React.Component {
   renderMonthLabel() {
     const { month } = this.state;
 
-    return <span className="month-label">{month.format('MMMM YYYY')}</span>;
+    const d = new Date(month);
+
+    const options = {
+      month: 'long',
+      year: 'numeric',
+    };
+
+    const fomatted = d.toLocaleDateString('nl-NL', options);
+
+    return <span className="month-label">{fomatted}</span>;
   }
 
   render() {
+    const showPrev =
+      new Date(this.state.month).getMonth() !==
+      new Date(this.props.from).getMonth();
+
+    const showNext =
+      new Date(this.state.month).getMonth() !==
+      new Date(this.props.to).getMonth();
+
     return (
-      <section className="calendar">
-        <header className="header">
+      <section className="calender  margin-t-m">
+        <header className="calender-header">
           <div className="month-display row">
-            <i className="arrow fa fa-angle-left" onClick={this.previous} />
+            {showPrev && (
+              <span className="calender-arrow" onClick={this.previous}>
+                &larr;
+              </span>
+            )}
+
             {this.renderMonthLabel()}
-            <i className="arrow fa fa-angle-right" onClick={this.next} />
+            {showNext && (
+              <span className="calender-arrow" onClick={this.next}>
+                &rarr;
+              </span>
+            )}
           </div>
           <DayNames />
         </header>
@@ -99,13 +125,13 @@ class DayNames extends React.Component {
   render() {
     return (
       <div className="row day-names">
-        <span className="day">Sun</span>
-        <span className="day">Mon</span>
-        <span className="day">Tue</span>
-        <span className="day">Wed</span>
-        <span className="day">Thu</span>
-        <span className="day">Fri</span>
-        <span className="day">Sat</span>
+        <span className="day">Zo</span>
+        <span className="day">Ma</span>
+        <span className="day">Di</span>
+        <span className="day">Wo</span>
+        <span className="day">Do</span>
+        <span className="day">Vr</span>
+        <span className="day">Za</span>
       </div>
     );
   }
@@ -176,8 +202,6 @@ class Day extends React.Component {
       const normalDate = normDate(e);
       return normalDate.getTime() === new Date(date).getTime();
     });
-
-    if (isPending) console.log(isPending);
 
     const className =
       'day ' +

@@ -21,24 +21,6 @@ exports.createSchemaCustomization = ({ actions }) => {
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
-  const dataFromGoogleForm = await graphql(`
-    query {
-      allGoogleSheetFormResponses1Row {
-        edges {
-          node {
-            contactnaam
-            emailaddress
-            naamvandeshow
-            opmerking
-            timestamp
-            welkedatumwiltuboeken
-            status
-          }
-        }
-      }
-    }
-  `);
-
   const dataFromCosmic = await graphql(`
     query {
       allCosmicjsShows {
@@ -66,29 +48,12 @@ exports.createPages = async ({ actions, graphql }) => {
   `);
 
   dataFromCosmic.data.allCosmicjsShows.edges.forEach(({ node }) => {
-    let calenderDate = { confirmed: [], pending: [], cancelled: [] };
-    dataFromGoogleForm.data.allGoogleSheetFormResponses1Row.edges.forEach(i => {
-      const {
-        node: { naamvandeshow, welkedatumwiltuboeken, status }
-      } = JSON.parse(JSON.stringify(i));
-
-      if (naamvandeshow.toLowerCase().includes(node.title.toLowerCase())) {
-        if (String(status) === 'bevestigd') {
-          calenderDate.confirmed.push(welkedatumwiltuboeken);
-        } else if (String(status) === 'geannuleerd') {
-          calenderDate.cancelled.push(welkedatumwiltuboeken);
-        } else {
-          calenderDate.pending.push(welkedatumwiltuboeken);
-        }
-      }
-    });
     createPage({
       path: node.slug,
       component: path.resolve(`./src/templates/page.js`),
       context: {
         node,
-        calenderDate
-      }
+      },
     });
   });
 };
