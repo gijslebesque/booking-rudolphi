@@ -384,7 +384,7 @@ dd {
   margin-bottom: 1.45rem;
 }
 p {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -393,6 +393,11 @@ p {
   padding-right: 0;
   padding-top: 0;
   margin-bottom: 1.45rem;
+}
+::selection {
+  background: $secondary-color;
+  color: white;
+  text-shadow: none;
 }
 pre {
   margin-left: 0;

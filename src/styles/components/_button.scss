@@ -1,0 +1,17 @@
+.btn {
+  padding: 20px 40px;
+  border: 1px black solid;
+  background: white;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: black;
+  position: absolute;
+  right: 0;
+  top: 0;
+  letter-spacing: 10px;
+  //   float: right;
+  &-primary {
+  }
+}

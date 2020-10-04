@@ -12,81 +12,71 @@
   display: flex;
   width: 100%;
 }
-.calendar {
+.calender {
+  padding: 1rem;
   display: block;
   background: #ffffff;
-  width: 300px;
-  border: solid 1px #cccccc;
-  margin: 10px auto;
-  box-shadow: 0 0 15px 0 #c0c0c0;
+  width: 250px;
+  border: 1px solid #dadce0;
+  // margin: 10px auto;
   font-size: 1.3rem;
   text-align: center;
+  border-radius: 5px;
+
+  &-header {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    color: #ffffff;
+    cursor: default;
+    font-size: 1.4rem;
+    display: block;
+    font-weight: bold;
+    text-transform: uppercase;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  &-arrow {
+    cursor: pointer;
+  }
 }
-.calendar header {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  align-items: center;
-  color: #ffffff;
-  cursor: default;
-  font-size: 1.4rem;
-  display: block;
-  font-weight: bold;
-  text-transform: uppercase;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.calendar header .month-display {
+.calender .calender-header .month-display {
   -webkit-box-align: center;
   align-items: center;
   height: 40px;
-  background: #2875c7;
+  background: white;
+  color: $black-primary;
 }
-.calendar header .month-label {
+.calender header .month-label {
   -webkit-box-flex: 1;
   flex: 1;
 }
-.calendar header .arrow {
-  text-align: center;
-  flex-basis: 15%;
-  font-weight: bold;
-  cursor: pointer;
-  -webkit-transition: background 0.2s;
-  transition: background 0.2s;
-  height: 100%;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  align-items: center;
+
+.calender .week {
+  border-top: solid 1px #dadce0;
 }
-.calendar header .arrow:hover {
-  background: #1f5c9d;
-}
-.calendar .week {
-  border-top: solid 1px #cccccc;
-}
-.calendar .week:first-child {
+.calender .week:first-child {
   border-top: none;
 }
-.calendar .day-names {
-  color: #2875c7;
+.calender .day-names {
+  color: $black-primary;
   font-weight: bold;
   cursor: default;
   font-size: 1.2rem;
 }
-.calendar .day-names .day {
+.calender .day-names .day {
   cursor: default;
 }
-.calendar .day-names .day:hover {
+.calender .day-names .day:hover {
   background: inherit;
 }
-.calendar .day {
+.calender .day {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: center;
@@ -95,34 +85,32 @@
   align-items: center;
   -webkit-box-flex: 1;
   flex: 1;
-  height: 35px;
-  border-left: solid 1px #cccccc;
-  cursor: pointer;
+  height: 25px;
+  border-left: solid 1px #dadce0;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
-.calendar .day:hover {
-  background: #efefef;
-}
-.calendar .day:first-child {
+
+.calender .day:first-child {
   border-left: none;
 }
-.calendar .day.today {
+.calender .day.today {
   background: #dceaf8;
 }
-.calendar .day.different-month {
+.calender .day.different-month {
   color: #c0c0c0;
 }
-.calendar .day.selected {
+.calender .day.selected {
   background: #2875c7;
   color: #ffffff;
 }
 
-.calendar .disabled {
-  background: red;
+.calender .day.disabled {
+  background: $secondary-color;
   color: #ffffff;
 }
-.calendar .pending {
-  background: yellow;
-  color: #ffffff;
-}
+
+// .calender .day.pending {
+//   background: powderblue;
+//   color: #ffffff;
+// }

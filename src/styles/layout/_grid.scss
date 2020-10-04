@@ -1,5 +1,5 @@
 .container {
-  width: 90%;
+  width: 80%;
   display: block;
   margin: 0 auto;
 }
@@ -24,6 +24,19 @@
   justify-content: space-between;
 }
 
+.flex-start {
+  display: flex;
+  align-self: flex-start;
+}
+
 .align-end {
   align-self: flex-end;
+}
+.align-start {
+  align-self: flex-start;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
 }
