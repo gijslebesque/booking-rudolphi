@@ -16,9 +16,12 @@ nav {
   bottom: 0;
   width: 100%;
   z-index: 999;
+  transition: all 250ms ease-out;
+  transform: translateX(0);
 }
 
 .side-nav {
+  transition: 0.5s ease;
   padding: 4rem;
   padding-top: 30px;
   position: fixed;
@@ -29,6 +32,10 @@ nav {
   right: 0;
   bottom: 0;
   box-shadow: 0 0 8px 1px black;
+
+  a {
+    font-size: 1.3rem;
+  }
 
   &-logo {
     display: block;

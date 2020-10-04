@@ -129,7 +129,7 @@ const Page = ({ pageContext: { node } }) => {
               id="google-form"
               src="https://docs.google.com/forms/d/e/1FAIpQLScI1ED5-411gh5mkqk21XdqJtrSIHTOiWHUNC3UGm_bUiTiWQ/viewform?embedded=true"
               width="100%"
-              height="900"
+              height="1500"
               frameBorder="0"
               marginHeight="0"
               marginWidth="0"
