@@ -98,12 +98,18 @@ const Page = ({ pageContext: { node } }) => {
             </div>
 
             <p>{showData.show_credits}</p>
-            <p>
-              <strong> Website:{'  '}</strong>
-              <a href={showData.link_to_show} target="_blank" rel="noreferrer">
-                {showData.show_name}
-              </a>
-            </p>
+            {showData.link_to_show && (
+              <p>
+                <strong> Website:{'  '}</strong>
+                <a
+                  href={showData.link_to_show}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {showData.show_name}
+                </a>
+              </p>
+            )}
           </div>
         </div>
 

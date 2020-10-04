@@ -15,13 +15,16 @@ const IndexPage = ({
   return (
     <Layout rows={rows}>
       <SEO title="Home" />
-      {rows.map((r, i) => (
-        <div key={i} className="card">
-          <Link to={r.link}>
-            <img src={r.img} alt={r.showName} />
-          </Link>
-        </div>
-      ))}
+      <div className="flex">
+        {rows.map((r, i) => (
+          <div key={i} className="card">
+            <Link to={r.link}>
+              <img className="card-image" src={r.img} alt={r.showName} />
+            </Link>
+            <h3 className="text-align-center card-header">{r.showName}</h3>
+          </div>
+        ))}
+      </div>
     </Layout>
   );
 };

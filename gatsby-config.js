@@ -27,8 +27,8 @@ module.exports = {
     description: `Theaterzaken Via Rudolphi is het theaterbureau van verschillende gezelschappen, veelbelovende projecten en aanstormende talenten.`,
     copyright: 'Copyright © VIA RUDOLPHI 2020. All Rights Reserved.',
     author: 'James & Gijs',
-    image: `src/images/proorganica.png`,
-    siteUrl: `https://www.proorganica.com`,
+    image: `src/images/logo_rudolphi.svg`,
+    siteUrl: `https://rudolphi-booking.netlify.app/`,
   },
 
   plugins: [
@@ -52,7 +52,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/logo_rudolphi.svg`, // This path is relative to the root of the site.
       },
     },
     {
