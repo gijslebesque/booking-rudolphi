@@ -395,6 +395,13 @@ p {
   padding-top: 0;
   margin-bottom: 1.45rem;
 }
+
+@media (max-width: 40rem) {
+  p {
+    font-size: 1rem;
+  }
+}
+
 ::selection {
   background: $secondary-color;
   color: white;
