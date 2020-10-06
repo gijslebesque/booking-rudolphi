@@ -89,7 +89,7 @@ const Page = ({ pageContext: { node } }) => {
                 <h2 className="underline">{showData.theatre_name}</h2>
               </div>
               <a href="#google-form" className="btn btn-primary">
-                Boek nu
+                Boek hier uw optie
               </a>
               <div className="show-mobile">
                 <Calender
