@@ -99,7 +99,7 @@ const Page = ({ pageContext: { node } }) => {
                 />
               </div>
             </div>
-            <div>
+            <div className="margin-t-m">
               <div
                 className="about"
                 dangerouslySetInnerHTML={{ __html: node.content }}
